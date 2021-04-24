@@ -13,7 +13,7 @@ namespace VizeHavaDurumAKD
 {
     public partial class Form1 : Form
     {
-        string hava_durumu_link = "https://www.mgm.gov.tr/FTPDATA/analiz/sonSOA.xml"
+        string hava_durumu_link = "https://www.mgm.gov.tr/FTPDATA/analiz/sonSOA.xml";
         public Form1()
         {
             InitializeComponent();
@@ -25,6 +25,23 @@ namespace VizeHavaDurumAKD
             doc1.Load(hava_durumu_link);
             XmlElement root = doc1.DocumentElement;
             XmlNodeList nodes = root.SelectNodes("sehirler");
+
+            foreach (XmlNode node in nodes)
+            {
+                string Bolge = node["Bölge"].InnerText;
+                string ili = node["İl"].InnerText;
+                string Durum = node["Durum"].InnerText;
+                string mak_sicaklik = node["Mak"].InnerText;
+                string min_sicaklik = node["Min"].InnerText;
+
+                DataGridView row = (DataGridViewRow)dataGridView1.Rows[0].Clone();
+                row.Cells[0].Value = Bogle;
+                row.Cells[1].Value = ili;
+                row.Cells[2].Value = Durum;
+                row.Cells[3].Value = mak_sicaklik;
+                row.Cells[4].Value = min_sicaklik;
+                dataGridView1.Rows.Add(row);
+            }
         }
 
         private void timer1_Tick(object sender, EventArgs e)
