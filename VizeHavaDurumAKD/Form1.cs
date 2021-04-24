@@ -44,6 +44,18 @@ namespace VizeHavaDurumAKD
                 dataGridView1.Rows.Add(row);
                
             }
+            TextWriter writer = new StreamWriter(@"Text.txt");
+            for (int i = 0; i < dataGridView1.Columns.Count -1  ; i++)
+            {
+                for (int j = 0; j < dataGridView1.Columns.Count; j++)
+                {
+                    writer.Write("\t" + dataGridView1.Rows[i].Cells[j].Value.ToString() + "\t" + "|");
+                }
+                writer.WriteLine("");
+                writer.WriteLine("------------------------------------------------");
+
+            }
+            writer.Close();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -70,6 +82,20 @@ namespace VizeHavaDurumAKD
                 dataGridView1.Rows.Add(row);
 
             }
+            TextWriter writer = new StreamWriter(@"Text.txt");
+            for (int i = 0; i < dataGridView1.Columns.Count - 1; i++)
+            {
+                for (int j = 0; j < dataGridView1.Columns.Count; j++)
+                {
+                    writer.Write("\t" + dataGridView1.Rows[i].Cells[j].Value.ToString() + "\t" + "|");
+                }
+                writer.WriteLine("");
+                writer.WriteLine("------------------------------------------------");
+
+            }
+            writer.Close();
+            MessageBox.Show("Sayfa Yenilendi");
+
         }
     }
 }
