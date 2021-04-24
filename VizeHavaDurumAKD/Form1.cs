@@ -90,7 +90,7 @@ namespace VizeHavaDurumAKD
                     writer.Write("\t" + dataGridView1.Rows[i].Cells[j].Value.ToString() + "\t" + "|");
                 }
                 writer.WriteLine("");
-                writer.WriteLine("------------------------------------------------");
+                writer.WriteLine("---------------------------------------------------");
 
             }
             writer.Close();
